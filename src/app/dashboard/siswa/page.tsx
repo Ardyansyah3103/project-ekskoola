@@ -154,14 +154,15 @@ function StudentDashboardContent() {
             </CardTitle>
             <CardDescription>Fitur utama untuk siswa</CardDescription>
           </CardHeader>
-          <CardContent className="grid md:grid-cols-2 gap-4">
-            <Link href="/dashboard/siswa/daftar-ekstrakurikuler-list">
-              <Button className="w-360 h-16 bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900 flex flex-col items-center justify-center space-y-1">
-                <Plus className="w-6 h-6" />
-                <span>Daftar Ekstrakurikuler</span>
-              </Button>
-            </Link>
-          </CardContent>
+          {/* Perbaikan di sini: Hapus grid dari CardContent jika hanya ada satu tombol yang ingin full width */}
+        <CardContent className="px-6 pb-6"> {/* Menyesuaikan padding agar konsisten */}
+          <Link href="/dashboard/siswa/daftar-ekstrakurikuler-list">
+           <Button className="w-full h-16 bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900 flex flex-col items-center justify-center space-y-1">
+              <Plus className="w-6 h-6" />
+          <span>Daftar Ekstrakurikuler</span>
+          </Button>
+         </Link>
+        </CardContent>
         </Card>
 
         <div className="grid gap-8 lg:grid-cols-3">
@@ -295,7 +296,6 @@ function StudentDashboardContent() {
               </CardContent>
             </Card>
           </div>
-
         </div>
       </div>
     </div>
