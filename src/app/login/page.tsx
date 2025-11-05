@@ -21,6 +21,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import { BookOpen, Users, Trophy, Eye, EyeOff } from "lucide-react"
+import { toast } from "sonner";
 
 // Buat komponen terpisah untuk menggunakan useSearchParams
 // Ini akan memastikan useSearchParams hanya dijalankan di client
@@ -60,6 +61,7 @@ function RoleTabs() {
 
       const data = await response.json();
       console.log("LOGIN SUCCESS:", data);
+      toast.success("Login berhasil!");
 
       // simpan token dan user
       if (data.access_token) {
@@ -77,7 +79,7 @@ function RoleTabs() {
         window.location.href = "/dashboard/pembina";
       }
     } catch (err: any) {
-      alert(`Login gagal: ${err.message}`);
+      toast.error("Login gagal: " + err.message);
     } finally {
       setIsLoading(false);
     }

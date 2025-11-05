@@ -4,6 +4,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Users, Calendar, CheckCircle, BookOpen, Trophy } from "lucide-react"
 
+export const metadata = {
+  title: "Ekskoola - Platform Manajemen Ekstrakurikuler",
+  description: "Kelola ekstrakurikuler sekolah dengan mudah dan modern.",
+};
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
