@@ -40,7 +40,7 @@ export default function HomePage() {
       <section className="py-20 px-4">
         <div className="container mx-auto text-center">
           <Badge className="mb-4 bg-blue-100 text-blue-700 hover:bg-blue-100">Platform Manajemen Ekstrakurikuler</Badge>
-          <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 bg-clip-text text-transparent">
+          <h2 className="text-5xl font-bold mb-6 leading-snug bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 bg-clip-text text-transparent">
             Kelola Ekstrakurikuler
             <br />
             Dengan Mudah
