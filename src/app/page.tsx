@@ -53,7 +53,7 @@ export default function HomePage() {
             <Link href="/login?role=siswa">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-700 hover:to-blue-800 px-8"
+                className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-800 hover:to-indigo-900 px-8 transition-all duration-300"
               >
                 <Users className="w-5 h-5 mr-2" />
                 Masuk Sebagai Siswa
