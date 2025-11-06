@@ -149,7 +149,7 @@ function DaftarEkstrakurikulerListPageContent() {
     return matchesSearch && matchesStatus;
   });
 
-  if (isLoading || userId === null) return <div className="p-8">Memuat daftar ekstrakurikuler...</div>;
+  // if (isLoading || userId === null) return <div className="p-8">Memuat daftar ekstrakurikuler...</div>;
   if (error)
     return (
       <div className="p-8 text-red-600">

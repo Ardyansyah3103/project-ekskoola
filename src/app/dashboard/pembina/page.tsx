@@ -106,7 +106,15 @@ export default function PembinaDashboard() {
     router.push("/login?role=pembina");
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center">
+      <div className="space-y-4 text-center">
+        <div className="w-16 h-16 border-4 border-blue-700 border-t-transparent rounded-full animate-spin mx-auto"></div>
+        <h2 className="text-xl font-semibold text-gray-700">Loading...</h2>
+        <p className="text-gray-500">Memuat data dashboard pembina</p>
+      </div>
+    </div>
+  ); 
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -138,7 +146,7 @@ export default function PembinaDashboard() {
               <Avatar className="w-16 h-16 border-2 border-white">
                 <AvatarImage src="/placeholder.svg" />
                 <AvatarFallback className="bg-white text-blue-600 text-lg font-bold">
-                  {supervisorData?.name
+                  {(supervisorData?.name ?? "pembina")
                     ?.split(" ")
                     .map((n) => n[0])
                     .join("")}

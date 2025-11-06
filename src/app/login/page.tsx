@@ -144,12 +144,19 @@ function RoleTabs() {
           </div>
         </div>
         <Button
-          className="w-full h-11 bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900"
-          onClick={() => handleLogin("siswa")}
-          disabled={isLoading}
-        >
-          {isLoading ? "Memproses..." : "Masuk sebagai Siswa"}
-        </Button>
+        className="w-full h-11 bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900 flex items-center justify-center gap-2"
+        onClick={() => handleLogin("siswa")}
+        disabled={isLoading}
+      >
+        {isLoading ? (
+          <>
+            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            Memproses...
+          </>
+        ) : (
+          "Masuk sebagai Siswa"
+        )}
+      </Button>
       </TabsContent>
 
       {/* pembina */}
@@ -191,13 +198,20 @@ function RoleTabs() {
             </Button>
           </div>
         </div>
-        <Button
-          className="w-full h-11 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
-          onClick={() => handleLogin("pembina")}
-          disabled={isLoading}
-        >
-          {isLoading ? "Memproses..." : "Masuk sebagai Pembina"}
-        </Button>
+         <Button
+        className="w-full h-11 bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900 flex items-center justify-center gap-2"
+        onClick={() => handleLogin("pembina")}
+        disabled={isLoading}
+      >
+        {isLoading ? (
+          <>
+            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            Memproses...
+          </>
+        ) : (
+          "Masuk sebagai pembina"
+        )}
+      </Button>
       </TabsContent>
     </Tabs>
   );

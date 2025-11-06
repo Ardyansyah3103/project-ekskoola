@@ -65,7 +65,7 @@ function StudentDashboardContent() {
     }
   }, [router]);
 
-  const { data, isLoading, error } = useQuery({
+  const { data, error } = useQuery({
     queryKey: ["dashboard", userId],
     queryFn: () =>
       fetchWithToken(
@@ -74,10 +74,13 @@ function StudentDashboardContent() {
     enabled: !!userId,
   });
 
-  if (isLoading || userId === null) return <div className="p-8">Memuat...</div>;
+  
   if (error) return <div className="p-8 text-red-600">Error: {(error as Error).message}</div>;
-
-  const { user, allExtracurriculars, myExtracurriculars } = data;
+  
+  const user = data?.user ?? {};
+  const allExtracurriculars = data?.allExtracurriculars ?? [];
+  const myExtracurriculars = data?.myExtracurriculars ?? [];
+  const displayName = user.name ?? "Siswa";
 
   const canRegister = (ekskul: any) => {
     if (+ekskul.JumlahAnggota >= ekskul.maxAnggota)
@@ -106,7 +109,7 @@ function StudentDashboardContent() {
             </div>
             <div>
               <h1 className="text-xl font-bold">Dashboard Siswa</h1>
-              <p className="text-sm text-gray-600">Selamat datang, {user.name}</p>
+              <p className="text-sm text-gray-600">Selamat datang, {displayName}</p>
             </div>
           </div>
           <div className="flex items-center space-x-3">
@@ -128,7 +131,7 @@ function StudentDashboardContent() {
               <Avatar className="h-16 w-16 border-2 border-white">
                 <AvatarImage src={user.avatar || "/placeholder.svg"} alt="avatar siswa" />
                 <AvatarFallback className="bg-white text-lg font-bold text-blue-600">
-                  {user.name
+                  {(user?.name ?? "Siswa") 
                     .split(" ")
                     .map((n: string) => n[0])
                     .join("")}
